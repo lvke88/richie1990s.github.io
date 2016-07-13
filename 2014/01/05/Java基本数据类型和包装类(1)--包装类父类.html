@@ -1,0 +1,703 @@
+<!doctype html>
+
+
+  
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=1.0.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="richie，blog" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.0.0" />
+
+
+
+
+
+
+<meta name="description" content="Java基本数据类型和包装类(1)–包装类父类Java是面向对象的语言，但Java中的基本数据类型却是不面向对象的。为了解决不足，在设计类的时候为每个基本数据类型设计了一个对应的类进行代表，这样和基本数据类型对应的类称为 包装类(Wrapper Class) 。基本数据类型和包装类对应的关系如下：  
+
+
+
+基本数据类型
+包装类
+
+
+
+
+byte
+Byte
+
+
+boolean
+Boolean">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基本数据类型和包装类(1)--包装类父类">
+<meta property="og:url" content="http://blog.shulq.com/2014/01/05/Java基本数据类型和包装类(1)--包装类父类.html">
+<meta property="og:site_name" content="生有涯而学无涯">
+<meta property="og:description" content="Java基本数据类型和包装类(1)–包装类父类Java是面向对象的语言，但Java中的基本数据类型却是不面向对象的。为了解决不足，在设计类的时候为每个基本数据类型设计了一个对应的类进行代表，这样和基本数据类型对应的类称为 包装类(Wrapper Class) 。基本数据类型和包装类对应的关系如下：  
+
+
+
+基本数据类型
+包装类
+
+
+
+
+byte
+Byte
+
+
+boolean
+Boolean">
+<meta property="og:updated_time" content="2016-07-08T08:44:06.576Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java基本数据类型和包装类(1)--包装类父类">
+<meta name="twitter:description" content="Java基本数据类型和包装类(1)–包装类父类Java是面向对象的语言，但Java中的基本数据类型却是不面向对象的。为了解决不足，在设计类的时候为每个基本数据类型设计了一个对应的类进行代表，这样和基本数据类型对应的类称为 包装类(Wrapper Class) 。基本数据类型和包装类对应的关系如下：  
+
+
+
+基本数据类型
+包装类
+
+
+
+
+byte
+Byte
+
+
+boolean
+Boolean">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Java基本数据类型和包装类(1)--包装类父类 | 生有涯而学无涯 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">生有涯而学无涯</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Java基本数据类型和包装类(1)--包装类父类
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-01-05T00:00:00+08:00" content="2014-01-05">
+              2014-01-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java源码解析/" itemprop="url" rel="index">
+                    <span itemprop="name">Java源码解析</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java源码解析/java-lang/" itemprop="url" rel="index">
+                    <span itemprop="name">java.lang</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java源码解析/java-lang/Java基本数据类型和包装类/" itemprop="url" rel="index">
+                    <span itemprop="name">Java基本数据类型和包装类</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Java基本数据类型和包装类-1-–包装类父类"><a href="#Java基本数据类型和包装类-1-–包装类父类" class="headerlink" title="Java基本数据类型和包装类(1)–包装类父类"></a>Java基本数据类型和包装类(1)–包装类父类</h2><p>Java是面向对象的语言，但Java中的基本数据类型却是不面向对象的。为了解决不足，在设计类的时候为每个基本数据类型设计了一个对应的类进行代表，这样和基本数据类型对应的类称为 <strong>包装类(Wrapper Class)</strong> 。基本数据类型和包装类对应的关系如下：  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">基本数据类型</th>
+<th style="text-align:center">包装类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">byte</td>
+<td style="text-align:center">Byte</td>
+</tr>
+<tr>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">Boolean</td>
+</tr>
+<tr>
+<td style="text-align:center">short</td>
+<td style="text-align:center">Short</td>
+</tr>
+<tr>
+<td style="text-align:center">char</td>
+<td style="text-align:center">Character</td>
+</tr>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center">Integer</td>
+</tr>
+<tr>
+<td style="text-align:center">long</td>
+<td style="text-align:center">Long</td>
+</tr>
+<tr>
+<td style="text-align:center">float</td>
+<td style="text-align:center">Float</td>
+</tr>
+<tr>
+<td style="text-align:center">double</td>
+<td style="text-align:center">Double</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Number–包装类的父类"><a href="#Number–包装类的父类" class="headerlink" title="Number–包装类的父类"></a>Number–包装类的父类</h3><p>抽象类 Number 是 AtomicInteger, AtomicLong, BigDecimal, BigInteger, Byte, Double, DoubleAccumulator, DoubleAdder, Float, Integer, Long, LongAccumulator, LongAdder和 Short 类的超类。Number 的子类必须提供将表示的数值转换为 byte、double、float、int、long 和 short 的方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> java.lang;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Number</span> <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="comment">/* 以 int 形式返回指定的数值。这可能会涉及到舍入或取整 */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">int</span> <span class="title">intValue</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 以 long 形式返回指定的数值。这可能涉及到舍入或取整 */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">long</span> <span class="title">longValue</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 以 float 形式返回指定的数值。这可能会涉及到舍入 */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">float</span> <span class="title">floatValue</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 以 double 形式返回指定的数值。这可能会涉及到舍入 */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">double</span> <span class="title">doubleValue</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 以 byte 形式返回指定的数值。这可能会涉及到舍入或取整 */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">byte</span> <span class="title">byteValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">byte</span>)intValue();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 以 short 形式返回指定的数值。这可能会涉及到舍入或取整 */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">short</span> <span class="title">shortValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">short</span>)intValue();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = -<span class="number">8742448824652078965L</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/01/04/Object源码解析.html" rel="next" title="Object源码解析">
+                <i class="fa fa-chevron-left"></i> Object源码解析
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/01/06/Java基本数据类型和包装类(2)--Boolean.html" rel="prev" title="Java基本数据类型和包装类(2)--Boolean">
+                Java基本数据类型和包装类(2)--Boolean <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="richie" />
+          <p class="site-author-name" itemprop="name">richie</p>
+          <p class="site-description motion-element" itemprop="description">不积跬步，无以至千里；<br/>不积小流，无以成江海。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives/index.html">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java基本数据类型和包装类-1-–包装类父类"><span class="nav-number">1.</span> <span class="nav-text">Java基本数据类型和包装类(1)–包装类父类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Number–包装类的父类"><span class="nav-number">1.1.</span> <span class="nav-text">Number–包装类的父类</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  Wed Jan 01 2014 08:00:00 GMT+0800 (中国标准时间) - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">richie</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=1.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=1.0.0"></script>
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=1.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=1.0.0"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=1.0.0"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=1.0.0"></script>
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+</body>
+</html>

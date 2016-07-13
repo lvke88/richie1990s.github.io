@@ -1,0 +1,697 @@
+<!doctype html>
+
+
+  
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=1.0.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="richie，blog" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.0.0" />
+
+
+
+
+
+
+<meta name="description" content="搭建Github静态博客为什么选择GitHub Pages
+免费，自由，也是一种趋势
+团队协作流程和技术大牛，有利于开阔眼界
+
+准备软件下载并安装以下软件
+
+Node.js
+Git
+
+在选定的目录中创建文件夹(此文件夹就是博客的根目录，所有操作都在里面执行，慎重选择)。进入文件夹，在空白处右键选择 Git Bash Here 在弹出的窗口中依次执行下列命令：
+
+//~ 安装Hexonpm inst">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建Github静态博客">
+<meta property="og:url" content="http://blog.shulq.com/2014/01/02/搭建Github静态博客.html">
+<meta property="og:site_name" content="生有涯而学无涯">
+<meta property="og:description" content="搭建Github静态博客为什么选择GitHub Pages
+免费，自由，也是一种趋势
+团队协作流程和技术大牛，有利于开阔眼界
+
+准备软件下载并安装以下软件
+
+Node.js
+Git
+
+在选定的目录中创建文件夹(此文件夹就是博客的根目录，所有操作都在里面执行，慎重选择)。进入文件夹，在空白处右键选择 Git Bash Here 在弹出的窗口中依次执行下列命令：
+
+//~ 安装Hexonpm inst">
+<meta property="og:updated_time" content="2016-07-01T09:59:22.394Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="搭建Github静态博客">
+<meta name="twitter:description" content="搭建Github静态博客为什么选择GitHub Pages
+免费，自由，也是一种趋势
+团队协作流程和技术大牛，有利于开阔眼界
+
+准备软件下载并安装以下软件
+
+Node.js
+Git
+
+在选定的目录中创建文件夹(此文件夹就是博客的根目录，所有操作都在里面执行，慎重选择)。进入文件夹，在空白处右键选择 Git Bash Here 在弹出的窗口中依次执行下列命令：
+
+//~ 安装Hexonpm inst">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 搭建Github静态博客 | 生有涯而学无涯 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">生有涯而学无涯</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                搭建Github静态博客
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-01-02T00:00:00+08:00" content="2014-01-02">
+              2014-01-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Github/" itemprop="url" rel="index">
+                    <span itemprop="name">Github</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Github/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="搭建Github静态博客"><a href="#搭建Github静态博客" class="headerlink" title="搭建Github静态博客"></a>搭建Github静态博客</h2><h3 id="为什么选择GitHub-Pages"><a href="#为什么选择GitHub-Pages" class="headerlink" title="为什么选择GitHub Pages"></a>为什么选择GitHub Pages</h3><ul>
+<li>免费，自由，也是一种趋势</li>
+<li>团队协作流程和技术大牛，有利于开阔眼界</li>
+</ul>
+<h3 id="准备软件"><a href="#准备软件" class="headerlink" title="准备软件"></a>准备软件</h3><p>下载并安装以下软件</p>
+<ol>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a></li>
+<li><a href="https://git-scm.com/" target="_blank" rel="external">Git</a></li>
+</ol>
+<p>在选定的目录中创建文件夹(此文件夹就是博客的根目录，所有操作都在里面执行，慎重选择)。进入文件夹，在空白处右键选择 <code>Git Bash Here</code> 在弹出的窗口中依次执行下列命令：</p>
+<blockquote>
+<p>//~ 安装Hexo<br>npm install-g hexo<br>//~ 初始化Hexo<br>hexo init  </p>
+</blockquote>
+<p>到这里本地博客已经搭建完成，执行下列命令查看：</p>
+<blockquote>
+<p>//~ 生成静态页面<br> hexo generate   (简写: hexo g)<br>//~ 启动本地服务，进行文章预览调试<br>hexo server   (简写: hexo s)  </p>
+</blockquote>
+<p>或者直接输入</p>
+<blockquote>
+<p>//~ 生成静态页面，并启动本地服务，进行文章预览调试<br>hexo server -g  </p>
+</blockquote>
+<p>浏览器输入 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 即可预览博客网页了。</p>
+<h4 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h4><p><strong>出现错误</strong><br>    ERROR Deployer not found: git 或者 ERROR Deployer not found: github<br><strong>解决方法</strong><br>    npm install hexo-deployer-git –save</p>
+<h3 id="注册和配置Github"><a href="#注册和配置Github" class="headerlink" title="注册和配置Github"></a>注册和配置Github</h3><ol>
+<li>注册并登录<br>进入 <a href="https://github.com/" target="_blank" rel="external">Github官网</a> 按照步骤进行注册，注册成功后登录。</li>
+<li>创建仓库<br>在首页点击绿色按钮 <code>New repository</code> ,Repository name规则为 <strong>用户名.github.io</strong> ,其他的默认设置就好了。   </li>
+<li>生成博客网页<br>进入创建好的仓库，找到 <code>Settings</code> 并点击进入，点击 <code>Automatic page generator</code> 然后填写博客的相关信息并选择博客主题   </li>
+<li>验证<br>在浏览器中输入 用户名.github.io， 就可以看到你的博客主页了。</li>
+</ol>
+<h3 id="配置SSH-Keys"><a href="#配置SSH-Keys" class="headerlink" title="配置SSH Keys"></a>配置SSH Keys</h3><ol>
+<li><p>检查本机的SSH密钥，</p>
+<blockquote>
+<p>cd ~/.ssh  </p>
+</blockquote>
+<p> 提示：No such file or directory。继续下面步骤，否则就不用再次生成了。</p>
+</li>
+<li><p>生成SSH Key</p>
+<blockquote>
+<p>ssh-keygen -t rsa -C “邮件地址”<br>Generating public/private rsa key pair.<br>Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):&lt;回车就好&gt;  </p>
+</blockquote>
+<p> 然后会要求输入密码，此处的密码是提交项目时使用的，如果为空则不用输入。</p>
+<blockquote>
+<p>Enter passphrase (empty for no passphrase):&lt;输入加密串&gt;<br>Enter same passphrase again:&lt;再次输入加密串&gt;  </p>
+</blockquote>
+</li>
+<li><p>添加SSH Key<br>打开 <code>&lt;用户目录&gt;/.ssh/id_rsa.pub</code> 复制内容，进入Github，点击右上角的 Account Settings—&gt;SSH Public keys —&gt; add another public keys，将复制的内容粘贴进去就好了。</p>
+</li>
+<li><p>测试   </p>
+<blockquote>
+<p>ssh -T git@github.com   </p>
+</blockquote>
+<p> 如果是下面的反馈   </p>
+<blockquote>
+<p>The authenticity of host ‘github.com (207.97.227.239)’ can’t be established.<br>RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.<br>Are you sure you want to continue connecting (yes/no)?   </p>
+</blockquote>
+<p> 输入 yes 就好了   </p>
+</li>
+</ol>
+<h3 id="购买域名并绑定Github-Pages"><a href="#购买域名并绑定Github-Pages" class="headerlink" title="购买域名并绑定Github Pages"></a>购买域名并绑定Github Pages</h3><ol>
+<li>创建CNAME文件<br>在仓库的根目录中创建文件CNAME 里面输入你的仓库名(用户名.github.io)，如blog.shulq.com   </li>
+<li>解析域名<br>创建新的记录<br>主机记录 www  记录类型 CNAME 记录值 用户名.github.io<br>主机记录 @  记录类型 A 记录值 192.30.252.153<br>主机记录 @  记录类型 A 记录值 192.30.252.154   </li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/01/01/写在博客之前.html" rel="next" title="写在博客之前">
+                <i class="fa fa-chevron-left"></i> 写在博客之前
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/01/03/Java源代码结构及常用的包.html" rel="prev" title="Java源代码结构及常用的包">
+                Java源代码结构及常用的包 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="richie" />
+          <p class="site-author-name" itemprop="name">richie</p>
+          <p class="site-description motion-element" itemprop="description">不积跬步，无以至千里；<br/>不积小流，无以成江海。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives/index.html">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建Github静态博客"><span class="nav-number">1.</span> <span class="nav-text">搭建Github静态博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么选择GitHub-Pages"><span class="nav-number">1.1.</span> <span class="nav-text">为什么选择GitHub Pages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#准备软件"><span class="nav-number">1.2.</span> <span class="nav-text">准备软件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#提示"><span class="nav-number">1.2.1.</span> <span class="nav-text">提示</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注册和配置Github"><span class="nav-number">1.3.</span> <span class="nav-text">注册和配置Github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置SSH-Keys"><span class="nav-number">1.4.</span> <span class="nav-text">配置SSH Keys</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#购买域名并绑定Github-Pages"><span class="nav-number">1.5.</span> <span class="nav-text">购买域名并绑定Github Pages</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  Wed Jan 01 2014 08:00:00 GMT+0800 (中国标准时间) - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">richie</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=1.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=1.0.0"></script>
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=1.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=1.0.0"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=1.0.0"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=1.0.0"></script>
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+</body>
+</html>

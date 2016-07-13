@@ -1,0 +1,617 @@
+<!doctype html>
+
+
+  
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=1.0.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="richie，blog" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.0.0" />
+
+
+
+
+
+
+<meta name="description" content="Java源代码结构及常用的包在查看Java源码的时候，发现很多Jar文件，如resources.jar、rt.jar、jsse.jar、jce.jar、charsets.jar、dnsns.jar、lacaldata.jar。resources.jar为资源包，rt.jar为运行时包。下面简单的说说rt.jar包的结构：
+rt.jar包结构–com–java–javax–jdk–org–sun">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java源代码结构及常用的包">
+<meta property="og:url" content="http://blog.shulq.com/2014/01/03/Java源代码结构及常用的包.html">
+<meta property="og:site_name" content="生有涯而学无涯">
+<meta property="og:description" content="Java源代码结构及常用的包在查看Java源码的时候，发现很多Jar文件，如resources.jar、rt.jar、jsse.jar、jce.jar、charsets.jar、dnsns.jar、lacaldata.jar。resources.jar为资源包，rt.jar为运行时包。下面简单的说说rt.jar包的结构：
+rt.jar包结构–com–java–javax–jdk–org–sun">
+<meta property="og:updated_time" content="2016-07-07T02:08:22.643Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java源代码结构及常用的包">
+<meta name="twitter:description" content="Java源代码结构及常用的包在查看Java源码的时候，发现很多Jar文件，如resources.jar、rt.jar、jsse.jar、jce.jar、charsets.jar、dnsns.jar、lacaldata.jar。resources.jar为资源包，rt.jar为运行时包。下面简单的说说rt.jar包的结构：
+rt.jar包结构–com–java–javax–jdk–org–sun">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Java源代码结构及常用的包 | 生有涯而学无涯 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">生有涯而学无涯</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Java源代码结构及常用的包
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-01-03T00:00:00+08:00" content="2014-01-03">
+              2014-01-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java源码解析/" itemprop="url" rel="index">
+                    <span itemprop="name">Java源码解析</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java源码解析/概述/" itemprop="url" rel="index">
+                    <span itemprop="name">概述</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Java源代码结构及常用的包"><a href="#Java源代码结构及常用的包" class="headerlink" title="Java源代码结构及常用的包"></a>Java源代码结构及常用的包</h2><p>在查看Java源码的时候，发现很多Jar文件，如resources.jar、rt.jar、jsse.jar、jce.jar、charsets.jar、dnsns.jar、lacaldata.jar。resources.jar为资源包，rt.jar为运行时包。下面简单的说说rt.jar包的结构：</p>
+<h3 id="rt-jar包结构"><a href="#rt-jar包结构" class="headerlink" title="rt.jar包结构"></a>rt.jar包结构</h3><p>–com<br>–java<br>–javax<br>–jdk<br>–org<br>–sun  </p>
+<p><strong>java.*、javax.*、org.*</strong> 作为Java API公开接口的一部分，与操作系统无关，可以在所有Java平台上运行且保持兼容。<br><strong>sun.*</strong> 不是Java API公开接口的一部分在不同系统的实现可能不一样，建议不要编写依赖于 sun.* 的程序。</p>
+<h3 id="常用的Java包"><a href="#常用的Java包" class="headerlink" title="常用的Java包"></a>常用的Java包</h3><p> Java采用包结构来组织和管理类和接口文件。本文介绍Java语言类库中几个常用的包，因为这几个包在软件开发与应用中经常需要用到，其中有些包是必要的。若是离开它，还真不能做事情了。</p>
+<p><strong>1. java.lang</strong><br>该包提供了Java语言进行程序设计的基础类，是<strong>默认导入</strong>的包。该包里面的Runnable接口和Object、Math、System、String、StringBuffer、Thread以及Throwable类，需要重点掌握，因为它们应用很广。  </p>
+<p><strong>2. java.util</strong><br>该包提供了包含集合框架、遗留的集合类、事件模型、日期和时间实施、国际化和各种实用工具类（字符串标记生成器、随机数生成器和位数组）。</p>
+<p><strong>3. java.io</strong><br>该包通过文件系统、数据流和序列化提供系统的输入与输出。</p>
+<p><strong>4. java.net</strong><br>该包提供实现网络应用与开发的类。</p>
+<p><strong>5. java.sql</strong><br>该包提供了使用Java语言访问并处理存储在数据源（通常是一个关系型数据库）中的数据API。</p>
+<p><strong>6. java.awt 和 javax.swing</strong><br>这两个包提供了GUI设计与开发的类。java.awt包提供了创建界面和绘制图形图像的所有类，而javax.swing包提供了一组“轻量级”的组件，尽量让这些组件在所有平台上的工作方式相同。</p>
+<p><strong>7. java.text</strong><br>提供了与自然语言无关的方式来处理文本、日期、数字和消息的类和接口。</p>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>接下来就要一一学习这些包中的源代码了。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/01/02/搭建Github静态博客.html" rel="next" title="搭建Github静态博客">
+                <i class="fa fa-chevron-left"></i> 搭建Github静态博客
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/01/04/Object源码解析.html" rel="prev" title="Object源码解析">
+                Object源码解析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="richie" />
+          <p class="site-author-name" itemprop="name">richie</p>
+          <p class="site-description motion-element" itemprop="description">不积跬步，无以至千里；<br/>不积小流，无以成江海。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives/index.html">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java源代码结构及常用的包"><span class="nav-number">1.</span> <span class="nav-text">Java源代码结构及常用的包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rt-jar包结构"><span class="nav-number">1.1.</span> <span class="nav-text">rt.jar包结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的Java包"><span class="nav-number">1.2.</span> <span class="nav-text">常用的Java包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后"><span class="nav-number">1.3.</span> <span class="nav-text">最后</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  Wed Jan 01 2014 08:00:00 GMT+0800 (中国标准时间) - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">richie</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=1.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=1.0.0"></script>
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=1.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=1.0.0"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=1.0.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=1.0.0"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=1.0.0"></script>
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+</body>
+</html>
